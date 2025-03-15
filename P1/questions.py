@@ -24,6 +24,8 @@ answers = [
 correct_answers_index = [1, 2, 0, 3, 1]
 #CREO UNA LISTA DE LAS RESPUESTAS POSIBLES
 posible_answers = [0,1,2,3]
+#CREO EL PUNTAJE DE LOS JUGADORES.
+players_score = 0
 # El usuario deberá contestar 3 preguntas
 for _ in range(3):
     # Se selecciona una pregunta aleatoria
@@ -39,7 +41,10 @@ for _ in range(3):
         if user_answer in posible_answers:
             if user_answer == correct_answers_index[question_index]:
                 print("¡Correcto!")
+                players_score = players_score + 1
                 break
+            else:
+                players_score = players_score - 0.5
         else:
             print('Respuesta no valida')
             exit(1)
@@ -50,3 +55,4 @@ for _ in range(3):
         print(answers[question_index][correct_answers_index[question_index]])
     # Se imprime un blanco al final de la pregunta
     print()
+print(f'el score conseguido por el participante es de {players_score}')
