@@ -33,7 +33,7 @@ numbers = string.digits
 #A continuacion, creo la variable questions_to_ask, lo que sera una tupla con pregunta, respuesta e indice de respuesta correcta.
 questions_data = list(zip(questions,answers,correct_answers_index))
 #Selecciono 3 tuplas aleatorias
-questions_to_ask = random.choices(questions_data, k = 3)
+questions_to_ask = random.sample(questions_data, k = 3) #unicamente cambio por random.sample para que no se repita
 # El usuario deberá contestar 3 preguntas
 for question, answers, correct_answers_index in questions_to_ask:
     print(question) #imprimo la pregunta aleatoria
