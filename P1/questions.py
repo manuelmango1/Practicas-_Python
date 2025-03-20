@@ -24,8 +24,6 @@ answers = [
 ]
 # Índice de la respuesta correcta para cada pregunta, el el mismo orden que las preguntas
 correct_answers_index = [1, 2, 0, 3, 1]
-#CREO UNA LISTA DE LAS RESPUESTAS POSIBLES
-posible_answers = [0,1,2,3]
 #CREO EL PUNTAJE DE LOS JUGADORES.
 players_score = 0
 #TRAIGO LOS NUMEROS
