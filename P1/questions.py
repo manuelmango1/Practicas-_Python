@@ -66,3 +66,6 @@ for question, respuestas, correct_index in questions_to_ask:
     # Se imprime un blanco al final de la pregunta
     print()
 print(f'el score conseguido por el participante es de {players_score}')
+
+
+#CORREGIDO Y ENTREGADO.
