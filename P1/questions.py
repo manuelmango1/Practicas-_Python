@@ -33,12 +33,12 @@ questions_data = list(zip(questions,answers,correct_answers_index))
 #Selecciono 3 tuplas aleatorias
 questions_to_ask = random.sample(questions_data, k = 3) #unicamente cambio por random.sample para que no se repita
 # El usuario deberá contestar 3 preguntas
-for question, answers, correct_answers_index in questions_to_ask:
+for question, respuestas, correct_index in questions_to_ask:
     print(question) #imprimo la pregunta aleatoria
     #question_index = random.randint(0, len(questions) - 1) : deshice esta linea ya que la pregunta random la seleccionamos con random.choices
     # Se muestra la pregunta y las respuestas posibles
     #print(questions[question_index]) #deshice esta linea, ya que la seleccion aleatoria la hicimos.
-    for i, answer in enumerate(answers):
+    for i, answer in enumerate(respuestas):
         print(f"{i + 1}. {answer}")
     # El usuario tiene 2 intentos para responder correctamente
     for intento in range(2):
@@ -46,7 +46,7 @@ for question, answers, correct_answers_index in questions_to_ask:
         # Se verifica si la respuesta es correcta
         if user_answer in numbers:
             user_answer = int(user_answer) - 1
-            if user_answer == correct_answers_index:
+            if user_answer == correct_index:
                 print("¡Correcto!")
                 players_score = players_score + 1
                 break
@@ -62,7 +62,7 @@ for question, answers, correct_answers_index in questions_to_ask:
         # Si el usuario no responde correctamente después de 2 intentos,
         # se muestra la respuesta correcta
         print("Incorrecto. La respuesta correcta es:")
-        print(answers[correct_answers_index])
+        print(respuestas[correct_index])
     # Se imprime un blanco al final de la pregunta
     print()
 print(f'el score conseguido por el participante es de {players_score}')
