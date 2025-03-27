@@ -35,3 +35,7 @@ for i in number_list:
   if i % 2 == 0:
       print(i)
 #5.
+
+rock = ["greta", "la renga"]
+music = rock + ["metalica"]
+print(rock)
