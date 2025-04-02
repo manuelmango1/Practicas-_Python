@@ -49,3 +49,17 @@ def generarClave(usuario, fecha_actual):
         randomClave = random.choice(letras + numeros)
         clave_base += randomClave
     return clave_base
+#EJERCICIO 9 FUNCIONES.
+def unirPalabras(clientes):
+    listaUnida = [" ".join(cliente.split())for cliente in clientes if cliente is not None and cliente.strip()!=""]
+    return listaUnida
+
+def convertirAtitulo(lista_clientes):
+    for cliente in lista_clientes:
+        lista_clientes[lista_clientes.index(cliente)] = cliente.title()
+    return lista_clientes
+
+def eliminarRepetidos(lista_clientes):
+    lista_sin_repetidos = list(set(lista_clientes))
+    return lista_sin_repetidos
+
