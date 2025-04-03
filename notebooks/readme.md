@@ -3,7 +3,7 @@
 Para poder ejecutar mi codigo, debes seguir los siguientes pasos:
 1-Installar jupyter notebook en tu dispositivo:
 
-Abrimos nuestra terminal y ejecutamos el siguiente comando : pip install notebook
+Abrimos nuestra terminal y ejecutamos el siguiente comando : pip install -r requirements.txt (dentro de mi carpeta notebooks para encontrar el archivo)
 
 una vez instalado, ejecutamos en la terminal: jupyter notebook
 
