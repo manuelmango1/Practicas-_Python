@@ -71,17 +71,17 @@ def insertarRonda(ronda, rounds, ranking_final, acciones):
     for elem in rounds[ronda]:
         ranking_final[elem]["kills"] += rounds[ronda][elem]["kills"]
         ranking_final[elem]["asistencias"] += rounds[ronda][elem]["assists"]
-        if ranking_final[elem]["muertes"] == True:
+        if rounds[ronda][elem]["deaths"] == True:
             ranking_final[elem]["muertes"] += 1
         else:
-            ranking_final[elem]["muertes"] = 1
+            ranking_final[elem]["muertes"] += 0
         if(rounds[ronda][elem]["kills"] > maxKills):
             maxKills = rounds[ronda][elem]["kills"]
             maxKillsPlayer = elem
     ranking_final[maxKillsPlayer]["mvps"] += 1
     for elemento in ranking_final:
         if ranking_final[elemento]["kills"] > 0:
-            ranking_final[elemento]["puntos"] += (ranking_final[elemento]["kills"] * acciones["kill"]) + (ranking_final[elemento]["asistencias"] * acciones["asistencia"]) - (ranking_final[elemento]["muertes"] * acciones["muerte"])
+            ranking_final[elemento]["puntos"] += (ranking_final[elemento]["kills"] * acciones["kill"]) + (ranking_final[elemento]["asistencias"] * acciones["asistencia"]) + (ranking_final[elemento]["muertes"] * acciones["muerte"])
         else:
             ranking_final[elemento]["puntos"] += 0
 
