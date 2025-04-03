@@ -63,3 +63,44 @@ def eliminarRepetidos(lista_clientes):
     lista_sin_repetidos = list(set(lista_clientes))
     return lista_sin_repetidos
 
+#EJERCICIO 10 FUNCIONES
+def insertarRonda(ronda, rounds, ranking_final, acciones):
+    maxKills = 0
+    maxKillsPlayer = ""
+    ronda = ronda-1
+    for elem in rounds[ronda]:
+        ranking_final[elem]["kills"] += rounds[ronda][elem]["kills"]
+        ranking_final[elem]["asistencias"] += rounds[ronda][elem]["assists"]
+        if ranking_final[elem]["muertes"] == True:
+            ranking_final[elem]["muertes"] += 1
+        else:
+            ranking_final[elem]["muertes"] = 1
+        if(rounds[ronda][elem]["kills"] > maxKills):
+            maxKills = rounds[ronda][elem]["kills"]
+            maxKillsPlayer = elem
+    ranking_final[maxKillsPlayer]["mvps"] += 1
+    for elemento in ranking_final:
+        if ranking_final[elemento]["kills"] > 0:
+            ranking_final[elemento]["puntos"] += (ranking_final[elemento]["kills"] * acciones["kill"]) + (ranking_final[elemento]["asistencias"] * acciones["asistencia"]) - (ranking_final[elemento]["muertes"] * acciones["muerte"])
+        else:
+            ranking_final[elemento]["puntos"] += 0
+
+    return ranking_final
+def inicializarRonda():
+    ranking_final = {
+    "Shadow": {"kills": 0, "asistencias": 0, "muertes": 0, "mvps": 0, "puntos": 0},
+    "Blaze": {"kills": 0, "asistencias": 0, "muertes": 0, "mvps": 0, "puntos": 0},
+    "Viper": {"kills": 0, "asistencias": 0, "muertes": 0, "mvps": 0, "puntos": 0},
+    "Frost": {"kills": 0, "asistencias": 0, "muertes": 0, "mvps": 0, "puntos": 0},
+    "Reaper": {"kills": 0, "asistencias": 0, "muertes": 0, "mvps": 0, "puntos": 0},
+    }
+    return ranking_final
+
+def imprimir_ranking(ranking_final):
+    print("{:<10} {:<6} {:<10} {:<8} {:<5} {:<7}".format("Jugador", "Kills", "Asistencias", "Muertes", "MVPs", "Puntos"))
+    print("-" * 50)
+    
+    for jugador, stats in sorted(ranking_final.items(), key=lambda x: x[1]['puntos'], reverse=True):
+        print("{:<10} {:<6} {:<10} {:<8} {:<5} {:<7}".format(
+            jugador, stats['kills'], stats['asistencias'], stats['muertes'], stats.get('mvps', 0), stats['puntos']
+            ))
